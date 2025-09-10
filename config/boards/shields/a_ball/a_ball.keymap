@@ -64,7 +64,7 @@
 	       &none  				     &mo EITHER_HAND_SCROLL        
 	       &none  	 			     &mkp RCLK                     
 	                       /* Buttons  */
-		&studio_unlock  &bt BT_NXT   &bt BT_C LR
+		&studio_unlock  &bt BT_NXT   &bt BT_CLR
 			&trans                  &mo 2
             >;
         };
