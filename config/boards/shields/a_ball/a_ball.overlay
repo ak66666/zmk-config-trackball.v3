@@ -18,8 +18,8 @@
         map = <
 		                 /* Ball */
 	         	RC(0,3)              RC(0,0) 
-		 RC(0,4)                            RC(0,1)
-   		 RC(0,5) 	                    RC(0,2) 
+		 RC(0,4)                            RC(0,2)
+   		 RC(0,5) 	                    RC(0,1) 
                   /* Buttons on top of the middle deck */
   		       /* Unlock  BTSelect BTReset */ 
                           RC(0,6) RC(0,7)  RC(0,8)        
@@ -37,8 +37,8 @@
             , <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 2 */
             , <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 3 */
             , <&pro_micro 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 4 */
-            , <&pro_micro 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 5 */
-            , <&pro_micro 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 6 */
+            , <&pro_micro 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 5 */
+            , <&pro_micro 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* Button 6 */
 
             , <&pro_micro 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* Studio Unlock */
             , <&pro_micro 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* BT Select */
@@ -124,22 +124,22 @@
     /* layer-2 Finger Left Hand pointer */
     finger_left_hand_pointer: finger_left_hand_pointer{
         layers           = <2>;
-//        input-processors = <
-//            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
 	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
 	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
-//        >;
+        >;
 	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
     };
 
     /* layer-3 Finger Right Hand pointer */
     finger_right_hand_pointer: finger_right_hand_pointer{
         layers           = <3>;
-//        input-processors = <
-//            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
 	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
 	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
-//        >;
+        >;
 	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
     };
 
