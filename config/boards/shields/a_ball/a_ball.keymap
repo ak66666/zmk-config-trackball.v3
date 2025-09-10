@@ -93,7 +93,7 @@
             >;
         };
 
-
+	// Layer 4
 	// Scroll layers do nothing by themselves, it is completely transparent.
 	// It is detected in trackball_listener telling to switch from the pointing movement to scrolling.
         EITHER_HAND_SCROLL {
