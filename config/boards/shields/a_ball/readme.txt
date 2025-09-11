@@ -45,4 +45,14 @@ The rest of the code was the same as in the mock-up.
 20250910 1757
 
 Adapting the firmware for v3.
-The sensor, button wiring has been changed a lot.
+Primary change is in the pins used for sensor, and buttons were shuffled around.
+Also added configuration switches - to specify the orientation (thumb v. fingers) and hand used (left v. right.)
+Bluetooth control buttons added - one to iterate through the profiles, and another to reset the current profile. At least that was the idea behind them, they are fully programmable, could be repurposed.
+
+
+20250911 0912
+
+Yesterday I implemented basic operations in the firmware: the ball navigation, button assigment is uniform in all orientation positions.
+To do: BT controls, ZMK.Studio support, and separately - add the dongle.
+
+

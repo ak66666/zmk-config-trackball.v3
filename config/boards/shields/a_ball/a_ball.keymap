@@ -48,8 +48,9 @@
 			&mkp LCLK             	&kp ESC
 		&mo THUMB_LEFT_SCROLL		     &none
 		&mkp RCLK                            &none
-	                       /* Buttons  */
+	                   /* Inner Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
+                     /* Handiness         Orientation */
 			&mo 1                   &mo 2
             >;
         };
@@ -61,8 +62,9 @@
      			&kp ESC        		&mkp LCLK             
 	       &none  				     &mo THUMB_RIGHT_SCROLL
 	       &none  	 			     &mkp RCLK                     
-	                       /* Buttons  */
-		&studio_unlock  &bt BT_NXT   &bt BT_CLR
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+                     /* Handiness         Orientation */
 			&trans                  &mo 2
             >;
         };
@@ -73,9 +75,10 @@
 			&mkp RCLK		&mkp LCLK             
 		&mo FINGERS_SCROLL			&mkp MCLK
 		&kp ESC					&kp ESC					
-	                       /* Buttons  */
-		&studio_unlock  &bt BT_NXT   &bt BT_CLR
-			&mo 3                 &trans
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+                     /* Handiness         Orientation */
+			&mo 3                  &trans
             >;
         };
 
@@ -85,8 +88,9 @@
 			&mkp LCLK             &mkp RCLK 
 		&mkp MCLK				&mo FINGERS_SCROLL
 		&kp ESC	        			&kp ESC
-	                       /* Buttons  */
-		&studio_unlock  &bt BT_NXT   &bt BT_CLR
+	                   /* Inner Buttons  */
+		            &trans &trans &trans
+                     /* Handiness         Orientation */
 			&trans                 &trans
             >;
         };
