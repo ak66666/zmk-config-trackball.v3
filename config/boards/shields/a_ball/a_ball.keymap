@@ -12,9 +12,9 @@
 
 #define THUMB_LEFT  0
 #define THUMB_RIGHT 1
-//#define FINGER_LEFT 2
-//#define FINGER_RIGHT 3 
-#define EITHER_HAND_SCROLL 2
+#define FINGER_LEFT 2
+#define FINGER_RIGHT 3 
+#define EITHER_HAND_SCROLL 4
 
 // Mouse speed increased
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
@@ -70,28 +70,28 @@
         };
 
 	// Layer 2
-//        FINGER_LEFT {
-//            bindings = <
-//			&mo EITHER_HAND_SCROLL	&mkp LCLK             
-//		&none					&mkp RCLK
-//		&none					&mkp MCLK
-//	                       /* Buttons  */
-//		&studio_unlock  &bt BT_NXT   &bt BT_CLR
-//			&mo 3                 &trans
-//            >;
-//        };
+        FINGER_LEFT {
+            bindings = <
+			&mo EITHER_HAND_SCROLL	&mkp LCLK             
+		&none					&mkp RCLK
+		&none					&mkp MCLK
+	                       /* Buttons  */
+		&studio_unlock  &bt BT_NXT   &bt BT_CLR
+			&mo 3                 &trans
+            >;
+        };
 
 	// Layer 3
-//        FINGER_RIGHT {
-//            bindings = <
-//			&mkp LCLK             &mo EITHER_HAND_SCROLL
-//		&mkp RCLK				&none	
-//		&mkp MCLK                               &none	
-//	                       /* Buttons  */
-//		&studio_unlock  &bt BT_NXT   &bt BT_CLR
-//			&trans                 &trans
-//            >;
-//        };
+        FINGER_RIGHT {
+            bindings = <
+			&mkp LCLK             &mo EITHER_HAND_SCROLL
+		&mkp RCLK				&none	
+		&mkp MCLK                               &none	
+	                       /* Buttons  */
+		&studio_unlock  &bt BT_NXT   &bt BT_CLR
+			&trans                 &trans
+            >;
+        };
 
 	// Layer 4
 	// Scroll layers do nothing by themselves, it is completely transparent.
