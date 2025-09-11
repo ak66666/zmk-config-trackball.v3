@@ -52,7 +52,7 @@
 		&mkp RCLK                            &none
 	                       /* Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
-			&mo 1                  &none /*&mo 2*/
+			&mo 1                   &mo 2
             >;
         };
 
@@ -65,7 +65,7 @@
 	       &none  	 			     &mkp RCLK                     
 	                       /* Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
-			&trans                  &none /*&mo 2  */
+			&trans                  &mo 2
             >;
         };
 
