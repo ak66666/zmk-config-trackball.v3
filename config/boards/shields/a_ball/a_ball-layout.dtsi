@@ -1,7 +1,7 @@
 #include <physical_layouts.dtsi>
 
 / {
-    thumbsupv9qs_layout: a_ball_layout {
+    a_ball_layout: a_ball_layout {
         compatible = "zmk,physical-layout";
         display-name = "Default";
 
