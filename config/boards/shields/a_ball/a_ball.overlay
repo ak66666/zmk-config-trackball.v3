@@ -104,16 +104,38 @@
     /* base processor chain on all layers */
     /* input-processors = <&zip_xy_scaler 5 5>; */
 
-    /* layer-4 both hand scroll override */
-    /* Put the scroll handler first so it can do its operations, and then proceed to the next side/orientation-specific processors */
-    either_hand_scroller: either_hand_scroller {
+    /* Put scroll handlers first so it can do its operations, and then proceed to the next side/orientation-specific processors */
+    /* Note that process-next command is not used - for each orientation-specific layer there is a separate handler.
+       They are arranged so the highest (by number) layers are processed first, thus avoiding interception from the lowest ones' overrides. */
+
+    /* layer-4 left hand thumb scroll override */
+    left_thumb_scroller: left_thumb_scroller{
         layers           = <4>;
         input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction.
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP |  INPUT_TRANSFORM_X_INVERT) // Inverts the pointer direction       
             &zip_xy_scaler 1 15                              // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
         >;
-	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
+    };
+
+    /* layer-5 right hand thumb scroll override */
+    right_thumb_scroller: right_thumb_scroller{
+        layers           = <5>;
+        input-processors = <
+            //&zip_xy_transform ( INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
+            &zip_xy_scaler 1 15                              // Scales the scroll speed
+            &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
+        >;
+    };
+
+    /* layer-6 both hands fingers scroll override */
+    fingers_scroller: fingers_scroller{
+        layers           = <6>;
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP |  INPUT_TRANSFORM_X_INVERT) // Inverts the pointer direction       
+            &zip_xy_scaler 1 15                              // Scales the scroll speed
+            &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
+        >;
     };
 
     /* layer-0 Thumb Left Hand pointer */
@@ -132,17 +154,6 @@
         >;
 //	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
     };
-
-//    /* layer-3 Finger Right Hand pointer */
-//    finger_right_hand_pointer: finger_right_hand_pointer{
-//        layers           = <3>;
-//        input-processors = <
-//            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP |  INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
-//	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
-//	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
-//        >;
-//	//process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
-//    };
 
     /* layer-1 Thumb Right Hand pointer */
     /* This layer's processor was intentionally moved to be after the left/right finger-controller layers, 

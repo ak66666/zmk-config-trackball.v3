@@ -14,16 +14,14 @@
 #define THUMB_RIGHT 1
 #define FINGER_LEFT 2
 #define FINGER_RIGHT 3 
-#define EITHER_HAND_SCROLL 4
+#define THUMB_LEFT_SCROLL  4
+#define THUMB_RIGHT_SCROLL 5
+#define FINGERS_SCROLL 6
 
 // Mouse speed increased
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
 //#include <dt-bindings/zmk/pointing.h>
-
-// #define LEFT_HAND     	0
-// #define RIGHT_HAND     	1
-// #define EITHER_HAND_SCROLL	2
 
 / {
     keymap {
@@ -47,8 +45,8 @@
 	// Layer 0
         THUMB_LEFT {
             bindings = <
-			&mkp LCLK             	&none
-		&mo EITHER_HAND_SCROLL               &none
+			&mkp LCLK             	&kp ESC
+		&mo THUMB_LEFT_SCROLL		     &none
 		&mkp RCLK                            &none
 	                       /* Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
@@ -60,8 +58,8 @@
 	// Layer 1
         THUMB_RIGHT {
             bindings = <
-     			&none         		&mkp LCLK             
-	       &none  				      &mo EITHER_HAND_SCROLL        
+     			&kp ESC        		&mkp LCLK             
+	       &none  				     &mo THUMB_RIGHT_SCROLL
 	       &none  	 			     &mkp RCLK                     
 	                       /* Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
@@ -72,9 +70,9 @@
 	// Layer 2
         FINGER_LEFT {
             bindings = <
-			&mo EITHER_HAND_SCROLL	&mkp LCLK             
-		&none					&mkp RCLK
-		&none					&mkp MCLK
+			&mkp RCLK		&mkp LCLK             
+		&mo FINGERS_SCROLL			&mkp MCLK
+		&kp ESC					&kp ESC					
 	                       /* Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
 			&mo 3                 &trans
@@ -84,26 +82,23 @@
 	// Layer 3
         FINGER_RIGHT {
             bindings = <
-			&mkp LCLK             &mo EITHER_HAND_SCROLL
-		&mkp RCLK				&none	
-		&mkp MCLK                               &none	
+			&mkp LCLK             &mkp RCLK 
+		&mkp MCLK				&mo FINGERS_SCROLL
+		&kp ESC	        			&kp ESC
 	                       /* Buttons  */
 		&studio_unlock  &bt BT_NXT   &bt BT_CLR
 			&trans                 &trans
             >;
         };
+ 
 
-	// Layer 4
 	// Scroll layers do nothing by themselves, it is completely transparent.
 	// It is detected in trackball_listener telling to switch from the pointing movement to scrolling.
-        EITHER_HAND_SCROLL {
-            bindings = <
-		&trans	&trans	&trans
-		&trans	&trans	&trans
-		&trans	&trans	&trans
-	     	&trans	&trans	
-            >;
-        };
+	// Need separate layers for orientation to implement 
+ 	// Layers 4, 5, 6
+/* 4 */ THUMB_LEFT_SCROLL  {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 5 */ THUMB_RIGHT_SCROLL {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
+/* 6 */ FINGERS_SCROLL     {bindings = <&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans>;};
 
 
     };
