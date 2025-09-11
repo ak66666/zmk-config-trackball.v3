@@ -121,31 +121,31 @@
 	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
     };
 
-    /* layer-2 Finger Left Hand pointer */
-    finger_left_hand_pointer: finger_left_hand_pointer{
-        layers           = <2>;
-        input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
-	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
-	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
-        >;
-	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
-    };
+//    /* layer-2 Finger Left Hand pointer */
+//    finger_left_hand_pointer: finger_left_hand_pointer{
+//        layers           = <2>;
+//        input-processors = <
+//            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
+//	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
+//	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
+//        >;
+//	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
+//    };
 
-    /* layer-3 Finger Right Hand pointer */
-    finger_right_hand_pointer: finger_right_hand_pointer{
-        layers           = <3>;
-        input-processors = <
-            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
-	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
-	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
-        >;
-	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
-    };
+//    /* layer-3 Finger Right Hand pointer */
+//    finger_right_hand_pointer: finger_right_hand_pointer{
+//        layers           = <3>;
+//        input-processors = <
+//            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction
+//	   // The regular scrolling assumes the scroling wheel, which is not used here, so &zip_scroll_transform is not applicable and does not work.
+//	   // &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction, from the default inversion..
+//        >;
+//	process-next; // To process the scroller layer, if/when it is activated. Without this command the processing would stop here.
+//    };
 
     /* layer-4 both hand scroll override */
     either_hand_scroller: either_hand_scroller {
-        layers           = <4>;
+        layers           = <2>;
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction.
             &zip_xy_scaler 1 15                              // Scales the scroll speed
