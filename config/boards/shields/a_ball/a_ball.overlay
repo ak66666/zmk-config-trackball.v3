@@ -112,7 +112,7 @@
     left_thumb_scroller: left_thumb_scroller{
         layers           = <4>;
         input-processors = <
-            &zip_xy_transform ( INPUT_TRANSFORM_X_INVERT) // Inverts the pointer direction       
+            &zip_xy_transform ( INPUT_TRANSFORM_Y_INVERT) // Inverts the pointer direction       
             &zip_xy_scaler 1 15                              // Scales the scroll speed
             &zip_xy_to_scroll_mapper                         // Converts XY movement to scroll events
         >;
