@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: antoinegs
       url-base: https://github.com/AntoineGS
+    - name: alphavibe
+      url-base: https://github.com/ALPHAvibe
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
@@ -17,7 +19,7 @@ manifest:
 #      remote: badjeff
 #      revision: main
     - name: zmk-pmw3610-driver
-      remote: antoinegs
+      remote: alphavibe
       revision: main
   self:
     path: config
